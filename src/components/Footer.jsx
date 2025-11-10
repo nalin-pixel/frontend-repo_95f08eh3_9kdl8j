@@ -1,14 +1,16 @@
 export default function Footer() {
   return (
-    <footer id="faq" className="border-t border-gray-200 bg-white">
+    <footer id="faq" className="border-t border-gray-200 bg-white/80 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-tr from-indigo-500 to-violet-500" />
+              <div className="h-8 w-8 rounded-xl bg-gradient-to-tr from-violet-500 via-purple-500 to-fuchsia-500" />
               <span className="font-semibold text-gray-900 text-lg">ProjectMart</span>
             </div>
-            <p className="mt-3 text-sm text-gray-600">A marketplace for complete, production-ready projects. Buy, ship, and grow faster.</p>
+            <p className="mt-3 text-sm text-gray-600">
+              A marketplace for complete, production-ready projects. Buy, ship, and grow faster.
+            </p>
           </div>
           <div>
             <h4 className="font-medium text-gray-900">Marketplace</h4>

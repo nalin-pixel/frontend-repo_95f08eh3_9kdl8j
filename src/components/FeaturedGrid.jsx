@@ -37,22 +37,22 @@ const items = [
 
 export default function FeaturedGrid() {
   return (
-    <section id="browse" className="py-16 bg-white">
+    <section id="browse" className="py-20 bg-gradient-to-b from-white to-violet-50/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-semibold text-gray-900">Featured projects</h2>
-          <a href="#" className="text-indigo-600 hover:text-indigo-700 text-sm font-medium">View all</a>
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900">Featured projects</h2>
+          <a href="#" className="text-purple-700 hover:text-purple-800 text-sm font-medium">View all</a>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item) => (
-            <div key={item.id} className="group border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-md transition-shadow">
+            <div key={item.id} className="group rounded-2xl overflow-hidden bg-white border border-gray-200/70 hover:border-gray-300 shadow-sm hover:shadow-md transition-all">
               <div className="aspect-video overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform" />
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" />
               </div>
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-medium text-gray-900 line-clamp-2">{item.title}</h3>
-                  <span className="text-indigo-600 font-semibold">${item.price}</span>
+                  <span className="text-purple-700 font-semibold">${item.price}</span>
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {item.tags.map((tag) => (
