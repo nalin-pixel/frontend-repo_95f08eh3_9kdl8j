@@ -1,0 +1,76 @@
+import { ShoppingCart } from 'lucide-react';
+
+const items = [
+  {
+    id: 1,
+    title: 'Fullstack SaaS Boilerplate',
+    price: 149,
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop',
+    tags: ['Next.js', 'Stripe', 'Auth'],
+  },
+  {
+    id: 2,
+    title: 'E-commerce UI Kit',
+    price: 79,
+    rating: 4.6,
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop',
+    tags: ['React', 'Tailwind'],
+  },
+  {
+    id: 3,
+    title: 'Landing Page Pack',
+    price: 59,
+    rating: 4.7,
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop',
+    tags: ['Framer', 'Motion'],
+  },
+  {
+    id: 4,
+    title: 'Mobile App Starter',
+    price: 99,
+    rating: 4.5,
+    image: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1200&auto=format&fit=crop',
+    tags: ['Expo', 'React Native'],
+  },
+];
+
+export default function FeaturedGrid() {
+  return (
+    <section id="browse" className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl font-semibold text-gray-900">Featured projects</h2>
+          <a href="#" className="text-indigo-600 hover:text-indigo-700 text-sm font-medium">View all</a>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {items.map((item) => (
+            <div key={item.id} className="group border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-md transition-shadow">
+              <div className="aspect-video overflow-hidden">
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform" />
+              </div>
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-medium text-gray-900 line-clamp-2">{item.title}</h3>
+                  <span className="text-indigo-600 font-semibold">${item.price}</span>
+                </div>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span key={tag} className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-700">{tag}</span>
+                  ))}
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-sm text-gray-500">⭐ {item.rating}</span>
+                  <button className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 hover:border-gray-300 text-sm">
+                    <ShoppingCart className="h-4 w-4" />
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
