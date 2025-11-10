@@ -1,4 +1,5 @@
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const items = [
   {
@@ -44,10 +45,18 @@ export default function FeaturedGrid() {
           <a href="#" className="text-purple-700 hover:text-purple-800 text-sm font-medium">View all</a>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {items.map((item) => (
-            <div key={item.id} className="group rounded-2xl overflow-hidden bg-white border border-gray-200/70 hover:border-gray-300 shadow-sm hover:shadow-md transition-all">
-              <div className="aspect-video overflow-hidden">
+          {items.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ delay: idx * 0.05 }}
+              className="group rounded-2xl overflow-hidden bg-white border border-gray-200/70 hover:border-gray-300 shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="aspect-video overflow-hidden relative">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="p-4">
                 <div className="flex items-start justify-between gap-2">
@@ -60,14 +69,16 @@ export default function FeaturedGrid() {
                   ))}
                 </div>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="text-sm text-gray-500">⭐ {item.rating}</span>
-                  <button className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 hover:border-gray-300 text-sm">
+                  <span className="text-sm text-gray-500 inline-flex items-center gap-1">
+                    <Star className="h-4 w-4 text-amber-500" /> {item.rating}
+                  </span>
+                  <motion.button whileTap={{ scale: 0.97 }} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-gray-200 hover:border-gray-300 text-sm">
                     <ShoppingCart className="h-4 w-4" />
                     Buy
-                  </button>
+                  </motion.button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
